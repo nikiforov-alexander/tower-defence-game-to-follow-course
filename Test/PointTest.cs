@@ -11,10 +11,10 @@ namespace TowerDefenceTreehouse.Test
             // Given Point(1,2)
             Point point = new Point(1, 2);
             // When DistanceToOrigin() is called
-            // Then 1*1 + 2*2 = 5 should be returned
+            // Then sqrt(1*1 + 2*2) = sqrt(5) should be returned
             Assert.AreEqual(
                     point.DistanceToOrigin(),
-                    5
+                    2
             );
         }
 
@@ -24,10 +24,10 @@ namespace TowerDefenceTreehouse.Test
             // Given Point(1,2)
             Point point = new Point(1, 2);
             // When DistanceTo(2, 4) is called
-            // Then (2-1)*(2-1) + (4-2)*(4-2) = 5 should be returned
+            // Then sqrt[(2-1)*(2-1) + (4-2)*(4-2)] = sqrt(5) should be returned
             Assert.AreEqual(
                     point.DistanceTo(2, 4),
-                    5
+                    2
             );
         }
     }
