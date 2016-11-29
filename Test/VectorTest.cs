@@ -25,7 +25,7 @@ namespace TowerDefenceTreehouse.Test
             // Then sqrt(2*2 + 1*1) = sqrt(5) = 2
             // should be returned
             Assert.AreEqual(
-                Vector.LengthSquared(2, 1),
+                Vector.Length(2, 1),
                 2
             );
         }
