@@ -19,7 +19,7 @@ namespace TowerDefenceTreehouse.Test
         }
 
         [Test]
-        public void DistanceToOtherPointIsCalculatedCorrectly()
+        public void DistanceToXyIsCalculatedCorrectly()
         {
             // Given Point(1,2)
             Point point = new Point(1, 2);
@@ -27,6 +27,21 @@ namespace TowerDefenceTreehouse.Test
             // Then sqrt[(2-1)*(2-1) + (4-2)*(4-2)] = sqrt(5) should be returned
             Assert.AreEqual(
                     point.DistanceTo(2, 4),
+                    2
+            );
+        }
+
+        [Test]
+        public void DistanceToOtherPointIsCalculatedCorrectly()
+        {
+            // Given Point(1,2)
+            Point point = new Point(1, 2);
+            // When DistanceTo(2, 4) is called
+            // Then sqrt[(2-1)*(2-1) + (4-2)*(4-2)] = sqrt(5) should be returned
+            Assert.AreEqual(
+                    point.DistanceToPoint(
+                        new Point(2,4)
+                    ),
                     2
             );
         }
