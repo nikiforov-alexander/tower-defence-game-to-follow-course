@@ -39,7 +39,7 @@ namespace TowerDefenceTreehouse.Test
             // When DistanceTo(2, 4) is called
             // Then sqrt[(2-1)*(2-1) + (4-2)*(4-2)] = sqrt(5) should be returned
             Assert.AreEqual(
-                    point.DistanceToPoint(
+                    point.DistanceTo(
                         new Point(2,4)
                     ),
                     2

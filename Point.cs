@@ -42,7 +42,7 @@
         @return int : distance between (point.X,point.Y) and
             (this.X,this.Y). {@see #DistanceTo()}
         */
-        public int DistanceToPoint(Point point)
+        public int DistanceTo(Point point)
         {
             return DistanceTo(point.X, point.Y);
         }
