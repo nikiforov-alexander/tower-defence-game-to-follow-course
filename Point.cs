@@ -17,22 +17,22 @@
         @param : int x
         @param : int y
         @return int : distance between (x,y) and
-            (X,Y), i.e. (X-x)*(X-x) + (Y-y)*(Y-y)
+            (X,Y). {@see #Vector.Length()}
         */
         public int DistanceTo(int x, int y)
         {
-            return Vector.LengthSquared(X - x, Y - y);
+            return Vector.Length(X - x, Y - y);
         }
 
         /**
         Returns distance of {@code this.Point}
         to origin
         @return int : distance between (0,0) and
-            (X,Y), i.e. (X)*(X) + (Y)*(Y)
+            (X,Y), {@see #Vector.Length()}
         */
         public int DistanceToOrigin()
         {
-            return Vector.LengthSquared(X, Y);
+            return Vector.Length(X, Y);
         }
     }
 }
