@@ -12,6 +12,18 @@ namespace TowerDefenceTreehouse
                                                " is outside the boundaries of the map.");
             }
         }
-        
+
+        /**
+            Checks if given {@code location} is in given
+            {@code range}.
+            @param : MapLocation location
+            @param : int range
+            @return boolean : true if distance to given {@code location}
+            is less than {@code range}
+        */
+        public bool InRangeOf(MapLocation location, int range)
+        {
+            return DistanceTo(location) <= range;
+        }
     }
 }
