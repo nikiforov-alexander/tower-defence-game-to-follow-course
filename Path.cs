@@ -1,7 +1,7 @@
-﻿namespace TowerDefenceTreehouse
+namespace TowerDefenceTreehouse
 {
-    public class Path
+    class Path
     {
-
+        private readonly MapLocation[] _path;
     }
 }
