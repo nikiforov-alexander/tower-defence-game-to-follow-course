@@ -1,6 +1,6 @@
 namespace TowerDefenceTreehouse
 {
-    class Path
+    internal class Path
     {
         private readonly MapLocation[] _path;
 
