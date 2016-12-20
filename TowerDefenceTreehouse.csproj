@@ -52,6 +52,7 @@
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\InvaderTest.cs" />
     <Compile Include="Test\MapTest.cs" />
     <Compile Include="Test\PathTest.cs" />
     <Compile Include="Test\PointTest.cs" />
