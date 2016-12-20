@@ -3,14 +3,14 @@
     public class Invader
     {
         private readonly Path _path;
-        private int _pathStep;
+        public int PathStep { get; private set; }
 
-        public MapLocation Location => _path.GetLocationAt(_pathStep);
+        public MapLocation Location => _path.GetLocationAt(PathStep);
 
         public Invader(Path path)
         {
             _path = path;
-            _pathStep = 0;
+            PathStep = 0;
         }
 
         /**
@@ -18,7 +18,7 @@
         */
         public void Move()
         {
-            _pathStep += 1;
+            PathStep += 1;
         }
     }
 }
