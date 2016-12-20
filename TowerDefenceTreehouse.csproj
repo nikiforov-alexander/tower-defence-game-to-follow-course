@@ -53,6 +53,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\MapTest.cs" />
+    <Compile Include="Test\PathTest.cs" />
     <Compile Include="Test\PointTest.cs" />
     <Compile Include="Test\VectorTest.cs" />
     <Compile Include="Tower.cs" />
