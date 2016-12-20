@@ -10,5 +10,13 @@
             _path = path;
             _pathStep = 0;
         }
+
+        /**
+        Moves Invader one step more.
+        */
+        public void Move()
+        {
+            _pathStep += 1;
+        }
     }
 }
