@@ -2,7 +2,7 @@ using System.Linq;
 
 namespace TowerDefenceTreehouse
 {
-    internal class Path
+    public class Path
     {
         private readonly MapLocation[] _path;
 
