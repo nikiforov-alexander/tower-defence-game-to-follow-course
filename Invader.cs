@@ -26,6 +26,8 @@
 
         public bool IsNeutralized => Health <= 0;
 
+        public bool IsActive => !IsNeutralized && !HasScored;
+
         // constructors
 
         public Invader(Path path) : this(path, 0, 10)
