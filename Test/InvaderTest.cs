@@ -40,17 +40,22 @@ namespace TowerDefenceTreehouse.Test
         }
 
         [Test]
-        public void InvaderThatReachedEndOfThePathShouldHaveScored()
+        public void InvaderThatReachedEndOfThePathShouldHaveScoredAndBecomeInactive()
         {
-            // Given TestInvader with path.Length of 1
+            // Given inactive and not-scored TestInvader
+            // with path.Length of 1
             // on some Map
             Assert.IsFalse(TestInvader.HasScored);
+            Assert.IsTrue(TestInvader.IsActive);
 
             // When we move invader
             TestInvader.Move();
 
             // Then Invader.HasScored should be true
             Assert.IsTrue(TestInvader.HasScored);
+
+            // Then Invader should be inactive
+            Assert.IsFalse(TestInvader.IsActive);
         }
 
     }
