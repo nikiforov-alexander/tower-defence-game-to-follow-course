@@ -12,6 +12,12 @@
 
         public MapLocation Location => _path.GetLocationAt(PathStep);
 
+        // True if the invader reached the end of the path
+        public bool HasScored
+        {
+            get { return PathStep >= _path.Length; }
+        }
+
         // constructors
 
         public Invader(Path path) : this(path, 0, 10)
