@@ -4,13 +4,19 @@
     {
         // fields and properties
 
+        // class properties
+
         private readonly Path _path;
+
+        public MapLocation Location => _path.GetLocationAt(PathStep);
+
+        // int properties
 
         public int PathStep { get; private set; }
 
         public int Health { get; private set; }
 
-        public MapLocation Location => _path.GetLocationAt(PathStep);
+        // boolean properties
 
         // True if the invader reached the end of the path
         public bool HasScored
