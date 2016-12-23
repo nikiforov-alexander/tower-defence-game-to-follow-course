@@ -39,5 +39,19 @@ namespace TowerDefenceTreehouse.Test
             Assert.AreEqual(1, TestInvader.PathStep);
         }
 
+        [Test]
+        public void InvaderThatReachedEndOfThePathShouldHaveScored()
+        {
+            // Given TestInvader with path.Length of 1
+            // on some Map
+            Assert.IsFalse(TestInvader.HasScored);
+
+            // When we move invader
+            TestInvader.Move();
+
+            // Then Invader.HasScored should be true
+            Assert.IsTrue(TestInvader.HasScored);
+        }
+
     }
 }
