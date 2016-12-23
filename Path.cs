@@ -15,6 +15,8 @@ namespace TowerDefenceTreehouse
             _path = path;
         }
 
+        public int Length => _path.Length;
+
         /**
         Gets {@code MapLocation} at given {@code pathStep}.
         @param pathStep : index of element in MapLocation array
