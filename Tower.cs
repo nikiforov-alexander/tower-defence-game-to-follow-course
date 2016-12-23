@@ -25,5 +25,11 @@ namespace TowerDefenceTreehouse
             return _random.NextDouble() < _accuracy;
         }
 
+        // constructors
+
+        public Tower(MapLocation location)
+        {
+            _location = location;
+        }
     }
 }
