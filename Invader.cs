@@ -18,6 +18,8 @@
             get { return PathStep >= _path.Length; }
         }
 
+        public bool IsNeutralized => Health <= 0;
+
         // constructors
 
         public Invader(Path path) : this(path, 0, 10)
