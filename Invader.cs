@@ -4,6 +4,10 @@
     {
         // fields and properties
 
+        // constants
+
+        public const int DefaultHealth = 10;
+
         // class properties
 
         private readonly Path _path;
@@ -30,7 +34,7 @@
 
         // constructors
 
-        public Invader(Path path) : this(path, 0, 10)
+        public Invader(Path path) : this(path, 0, DefaultHealth)
         {
         }
 
