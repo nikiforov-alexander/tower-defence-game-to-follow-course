@@ -5,10 +5,17 @@ namespace TowerDefenceTreehouse.Test
     [TestFixture]
     public class InvaderTest
     {
-        [Test]
-        public void MoveMethodShouldChangePathStep()
+        // test invader used in tests,
+        // set up in [setUp] method
+        public Invader TestInvader
         {
-            // Given Invader with some Path
+            get;
+            set;
+        }
+
+        [SetUp]
+        public void SetUp()
+        {
             Map map = new Map(10,10);
             Path path = new Path(
                 new []
@@ -16,13 +23,20 @@ namespace TowerDefenceTreehouse.Test
                     new MapLocation(1,1, map),
                 }
             );
-            Invader invader = new Invader(path);
+            TestInvader = new Invader(path);
+        }
+
+        [Test]
+        public void MoveMethodShouldChangePathStep()
+        {
+            // Given TestInvader with some Path
+            // on some Map with some MapLocation
 
             // When Move() method is called
-            invader.Move();
+            TestInvader.Move();
 
-            // Then _pathStep should change to 1
-            Assert.AreEqual(1, invader.PathStep);
+            // Then PathStep should change to 1
+            Assert.AreEqual(1, TestInvader.PathStep);
         }
 
     }
