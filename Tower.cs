@@ -4,17 +4,17 @@ namespace TowerDefenceTreehouse
 {
     public class Tower
     {
-        // constants
+        // constant fields
 
-        private const int Range = 1;
-        private const int Power = 1;
-        private const double Accuracy = .75;
+        private const int _range = 1;
+        private const int _power = 1;
+        private const double _accuracy = .75;
 
-        // static members
+        // static fields
 
         private static readonly Random _random = new Random();
 
-        // members with class return type
+        // fields with class return type
 
         private readonly MapLocation _location;
 
@@ -22,7 +22,7 @@ namespace TowerDefenceTreehouse
 
         public bool IsSuccessfulShot()
         {
-            return _random.NextDouble() < Accuracy;
+            return _random.NextDouble() < _accuracy;
         }
 
     }
