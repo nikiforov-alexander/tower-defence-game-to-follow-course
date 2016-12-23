@@ -58,5 +58,22 @@ namespace TowerDefenceTreehouse.Test
             Assert.IsFalse(TestInvader.IsActive);
         }
 
+        [Test]
+        public void InvaderThatLostHisHealthBecomesInactiveAndNeutralized()
+        {
+            // Given active and not-neutralized TestInvader
+            // initialized with DefaultHealth
+            // with path.Length of 1 on some Map
+            Assert.False(TestInvader.IsNeutralized);
+            Assert.True(TestInvader.IsActive);
+
+            // When we decrease health by DefaultHealth
+            TestInvader.DecreaseHealthBy(Invader.DefaultHealth);
+
+            // Then Invader should be inactive and neutralized
+            Assert.True(TestInvader.IsNeutralized);
+            Assert.False(TestInvader.IsActive);
+        }
+
     }
 }
