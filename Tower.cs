@@ -18,5 +18,12 @@ namespace TowerDefenceTreehouse
 
         private readonly MapLocation _location;
 
+        // boolean properties
+
+        public bool IsSuccessfulShot()
+        {
+            return _random.NextDouble() < Accuracy;
+        }
+
     }
 }
