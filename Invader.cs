@@ -14,11 +14,15 @@
 
         // constructors
 
-        public Invader(Path path)
+        public Invader(Path path) : this(path, 0, 10)
+        {
+        }
+
+        public Invader(Path path, int pathStep, int health)
         {
             _path = path;
-            PathStep = 0;
-            Health = 10;
+            PathStep = pathStep;
+            Health = health;
         }
 
         // other methods
