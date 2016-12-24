@@ -6,9 +6,15 @@ namespace TowerDefenceTreehouse
     {
         // constant fields
 
-        private const int _range = 1;
-        private const int _power = 1;
-        private const double _accuracy = .75;
+        public const int DefaultRange = 1;
+        public const int DefaultPower = 1;
+        public const double DefaultAccuracy = .75;
+
+        // properties with simple return type
+
+        public int Range { get; }
+        public int Power { get; }
+        public double Accuracy { get; }
 
         // static fields
 
@@ -22,7 +28,7 @@ namespace TowerDefenceTreehouse
 
         public bool IsSuccessfulShot()
         {
-            return _random.NextDouble() < _accuracy;
+            return _random.NextDouble() < Accuracy;
         }
 
         // constructors
