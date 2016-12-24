@@ -16,13 +16,11 @@ namespace TowerDefenceTreehouse
         public int Power { get; }
         public double Accuracy { get; }
 
-        // static fields
-
-        private static readonly Random _random = new Random();
-
         // fields with class return type
 
         private readonly MapLocation _location;
+
+        private readonly Random _random;
 
         // boolean properties
 
@@ -43,7 +41,7 @@ namespace TowerDefenceTreehouse
             Range = range;
             Power = power;
             Accuracy = accuracy;
-            Random = random;
+            _random = random;
         }
     }
 }
