@@ -43,5 +43,16 @@ namespace TowerDefenceTreehouse
             Accuracy = accuracy;
             _random = random;
         }
+
+        // Default constructor, used in actual Game
+
+        public Tower(MapLocation location) :
+            this(location,
+                DefaultRange,
+                DefaultPower,
+                DefaultAccuracy,
+                new Random())
+        {
+        }
     }
 }
