@@ -77,5 +77,23 @@ namespace TowerDefenceTreehouse.Test
             RandomMock.Verify(random => random.NextDouble());
         }
 
+        [Test]
+        public void ShotOnInvaderIsUnSuccessfulWhenRandomGivesValueMoreThanAccuracy()
+        {
+            // Given TestTower with Miss Shot
+            // i.e. when Random gives value more than accuracy
+            // 0.9, with Accuracy 0.75
+            SetUpTowerLocationWithRandomDoubleValue(0.9);
+            Assert.Greater(0.9, TestTower.Accuracy);
+
+            // When TestTower.isSuccesfulShot() is called
+
+            // Then False should be returned
+            Assert.False(TestTower.IsSuccessfulShot());
+
+            // Then _random.nextDouble should be called
+            RandomMock.Verify(random => random.NextDouble());
+        }
+
     }
 }
