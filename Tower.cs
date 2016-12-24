@@ -33,9 +33,17 @@ namespace TowerDefenceTreehouse
 
         // constructors
 
-        public Tower(MapLocation location)
+        public Tower(MapLocation location,
+            int range,
+            int power,
+            double accuracy,
+            Random random)
         {
             _location = location;
+            Range = range;
+            Power = power;
+            Accuracy = accuracy;
+            Random = random;
         }
     }
 }
