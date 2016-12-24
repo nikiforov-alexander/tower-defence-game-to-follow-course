@@ -24,6 +24,20 @@ namespace TowerDefenceTreehouse
 
         // boolean properties
 
+        /// <summary>
+        /// <c>_random.NextDouble()</c> gives number
+        /// from 0 to 1.
+        ///
+        /// If <c>Accuracy</c> is for example 0.75, that
+        /// means that we will have numbers from
+        /// [0, 0.75] with high probability when
+        /// we say that condition is <c>randomDouble &amp;lt; Accuracy</c>
+        ///
+        /// That also means when <c>_random.NextDouble</c> will give
+        /// a number from 0 to <c>Accuracy</c> we will have a successful
+        /// shot
+        /// </summary>
+        /// <returns></returns>
         public bool IsSuccessfulShot()
         {
             return _random.NextDouble() < Accuracy;
