@@ -82,10 +82,9 @@ namespace TowerDefenceTreehouse.Test
         public void ShotOnInvaderIsUnSuccessfulWhenRandomGivesValueMoreThanAccuracy()
         {
             // Given TestTower with Miss Shot
-            // i.e. when Random gives value more than accuracy
-            // 0.9, with Accuracy 0.75
-            SetUpTowerLocationWithRandomDoubleValue(0.9);
-            Assert.Greater(0.9, TestTower.Accuracy);
+            // i.e. when Random gives value MORE than accuracy
+            SetUpTowerLocationWithRandomDoubleValue(1.0);
+            Assert.Greater(1.0, TestTower.Accuracy);
 
             // When TestTower.isSuccesfulShot() is called
 
