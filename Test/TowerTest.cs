@@ -75,7 +75,8 @@ namespace TowerDefenceTreehouse.Test
         /// 0 i i i i i i
         ///   0 1 2 3 4 5
         /// </summary>
-        private void SetUpTestInvaderInTowerRange()
+        /// <param name="health">TestInvader's health</param>
+        private void SetUpTestInvaderInTowerRangeWithHealth(int health)
         {
             Path invaderPath = new Path(
                 new []
@@ -91,7 +92,7 @@ namespace TowerDefenceTreehouse.Test
             TestInvaderInTowerRange = new Invader(
                 path: invaderPath,
                 pathStep: 0,
-                health: Invader.DefaultHealth
+                health: health
             );
         }
 
@@ -209,7 +210,8 @@ namespace TowerDefenceTreehouse.Test
                 // 1   t
                 // 0 i i i i i i
                 //   0 1 2 3 4 5
-                SetUpTestInvaderInTowerRange();
+                // with DefaultHealth
+                SetUpTestInvaderInTowerRangeWithHealth(Invader.DefaultHealth);
                 Assert.IsTrue(TestInvaderInTowerRange.IsActive);
                 Assert.IsTrue(
                     TestTower.IsInRangeOf(
