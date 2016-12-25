@@ -234,5 +234,53 @@ namespace TowerDefenceTreehouse.Test
                 Assert.IsTrue(sw.ToString().Contains("is hit"));
             }
         }
+
+        [Test]
+        public void SuccessfulShotOnInvaderWithLastBitOfHealthNeutralizesInvader()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                // Given TestTower with Hit Shot
+                SetUpTowerLocationWithRandomDoubleValue(0.0);
+                // Given Invader that is in range of TestTower
+                // 5
+                // 4
+                // 3
+                // 2
+                // 1   t
+                // 0 i i i i i i
+                //   0 1 2 3 4 5
+                // With health equal to power of tower
+                SetUpTestInvaderInTowerRangeWithHealth(TestTower.Power);
+                Assert.IsTrue(TestInvaderInTowerRange.IsActive);
+                Assert.IsTrue(
+                    TestTower.IsInRangeOf(
+                        TestInvaderInTowerRange
+                    )
+                );
+                Assert.AreEqual(
+                    TestInvaderInTowerRange.Health,
+                    TestTower.Power,
+                    "Tower.Power should be equal to Invader.Health to kill him"
+                );
+
+
+                // When Tower fires on invaders
+                // with TestInvader as only Invader
+                TestTower.FireOnInvaders(new []{TestInvaderInTowerRange});
+
+                // Then hit message should be printed
+                Assert.IsTrue(sw.ToString().Contains("is hit"));
+                Assert.IsTrue(sw.ToString().Contains("is killed"));
+
+                // Then TestInvader should be neutralized
+                Assert.IsTrue(
+                    TestInvaderInTowerRange.IsNeutralized
+                );
+            }
+
+        }
+
     }
 }
