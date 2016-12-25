@@ -279,7 +279,50 @@ namespace TowerDefenceTreehouse.Test
                     TestInvaderInTowerRange.IsNeutralized
                 );
             }
+        }
 
+        [Test]
+        public void MissedShotOnInvaderBecauseOfNotSuccessfulShotDoesNotDecreaseItsHealth()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                // Given TestTower with Miss Shot
+                SetUpTowerLocationWithRandomDoubleValue(1.0);
+                // Given Invader that is in range of TestTower
+                // 5
+                // 4
+                // 3
+                // 2
+                // 1   t
+                // 0 i i i i i i
+                //   0 1 2 3 4 5
+                // With default invader health
+                SetUpTestInvaderInTowerRangeWithHealth(Invader.DefaultHealth);
+                Assert.IsTrue(TestInvaderInTowerRange.IsActive);
+                Assert.IsTrue(
+                    TestTower.IsInRangeOf(
+                        TestInvaderInTowerRange
+                    )
+                );
+                int invaderHealthBeforeShot = TestInvaderInTowerRange.Health;
+
+
+                // When Tower fires on invaders
+                // with TestInvader as only Invader
+                TestTower.FireOnInvaders(new []{TestInvaderInTowerRange});
+
+                Assert.IsTrue(sw.ToString().Contains("missed"),
+                    "Then miss message should be printed"
+                );
+
+                Assert.AreEqual(
+                    invaderHealthBeforeShot,
+                    TestInvaderInTowerRange.Health,
+                    "Then TestInvader Health should be the same as" +
+                    "before shot"
+                );
+            }
         }
 
     }
