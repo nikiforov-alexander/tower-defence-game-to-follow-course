@@ -95,6 +95,35 @@ namespace TowerDefenceTreehouse.Test
             );
         }
 
+        /// <summary>
+        ///     Creates <code>Invader</code> with <c>Path</c>
+        ///     from one <c>MapLocation</c>, that is constructed from
+        ///     passed arguments <c>x</c> and <c>y</c> on the
+        ///     <c>TestMap</c>.
+        /// </summary>
+        ///
+        /// <param name="x">
+        ///     X coordinate of <c>MapLocation</c>
+        /// </param>
+        /// <param name="y">
+        ///     Y coordinate of <c>MapLocation</c>
+        /// </param>
+        /// <returns>
+        ///     <c>Invader</c> with <c>Path</c> from only one
+        ///     <c>MapLocation</c>
+        /// </returns>
+        private Invader CreateInvaderWithPathOfOneMapLocation(int x, int y)
+        {
+            return new Invader(
+                new Path(
+                    new []
+                    {
+                        new MapLocation(x, y, TestMap),
+                    }
+                )
+            );
+        }
+
         [Test]
         public void ShotOnInvaderIsSuccessfulWhenRandomGivesValueLessThanAccuracy()
         {
@@ -129,6 +158,40 @@ namespace TowerDefenceTreehouse.Test
             RandomMock.Verify(random => random.NextDouble());
         }
 
+        [Test]
+        public void IsInRangeOfShouldReturnTrueWhenInvaderIsClose()
+        {
+            // Given TestTower on (1,1) TestMap location
+            SetUpTowerLocationWithRandomDoubleValue(0.0);
+            // Given 8 Invaders that are in range of 1
+            // 5
+            // 4
+            // 3
+            // 2 i6 i7 i8
+            // 1 i4  t i5
+            // 0 i1 i2 i3
+            //    0  1  2  3  4  5
+            Invader i1 = CreateInvaderWithPathOfOneMapLocation(x: 0, y: 0);
+            Invader i2 = CreateInvaderWithPathOfOneMapLocation(x: 1, y: 0);
+            Invader i3 = CreateInvaderWithPathOfOneMapLocation(x: 2, y: 0);
+
+            Invader i4 = CreateInvaderWithPathOfOneMapLocation(x: 0, y: 1);
+            // at (1,1) stays TestTower
+            Invader i5 = CreateInvaderWithPathOfOneMapLocation(x: 2, y: 1);
+
+            Invader i6 = CreateInvaderWithPathOfOneMapLocation(x: 0, y: 2);
+            Invader i7 = CreateInvaderWithPathOfOneMapLocation(x: 1, y: 2);
+            Invader i8 = CreateInvaderWithPathOfOneMapLocation(x: 2, y: 2);
+
+            // When IsInRangeOf() is called with invaders
+            // Then true should be returned
+            foreach (var invader in new []{i1, i2, i3, i4, i5, i6, i7, i8})
+            {
+                Assert.IsTrue(
+                    TestTower.IsInRangeOf(invader)
+                );
+            }
+        }
 
         [Test]
         public void ShotOnActiveInvaderInTowerRangeShouldHitAndDecreaseHealth()
