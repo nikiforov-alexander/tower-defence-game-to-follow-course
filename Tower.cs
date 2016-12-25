@@ -43,6 +43,21 @@ namespace TowerDefenceTreehouse
             return _random.NextDouble() < Accuracy;
         }
 
+        /// <summary>
+        /// Checks if <c>Tower</c> is in range of
+        /// <c>Invader</c> passed as argument.
+        ///
+        /// Method <c>InRangeOf</c> defined in
+        /// <c>MapLocation</c> is used upon
+        /// <c>_location</c> field with <c>Tower.Range</c>
+        /// </summary>
+        /// <param name="invader"></param>
+        /// <returns>
+        ///     <c>true</c> if invader is
+        ///     in <c>Tower.Range</c>
+        /// </returns>
+        public bool IsInRangeOf(Invader invader) => _location.InRangeOf(invader.Location, Range);
+
         // constructors
 
         public Tower(MapLocation location,
