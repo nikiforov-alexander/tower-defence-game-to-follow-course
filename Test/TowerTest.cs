@@ -12,6 +12,7 @@ namespace TowerDefenceTreehouse.Test
         public Tower TestTower;
         public Mock<Random> RandomMock;
         public Invader TestInvaderInTowerRange;
+        public Invader TestInvaderOutOfTowerRange;
 
         /// <summary>
         /// here we set up only <c>TestMap</c>
@@ -90,6 +91,39 @@ namespace TowerDefenceTreehouse.Test
                 }
             );
             TestInvaderInTowerRange = new Invader(
+                path: invaderPath,
+                pathStep: 0,
+                health: health
+            );
+        }
+
+        /// <summary>
+        /// Sets up the <c>TestInvader</c> that is OUT of <c>TestTower.Range</c>
+        /// with <c>Invader.DefaultHealth</c> and 0 as <c>pathStep</c>
+        /// Here is how <c>invaderPath</c> looks like
+        /// 5
+        /// 4
+        /// 3 i i i i i i
+        /// 2
+        /// 1   t
+        /// 0
+        ///   0 1 2 3 4 5
+        /// </summary>
+        /// <param name="health">TestInvader's health</param>
+        private void SetUpTestInvaderOutOfTowerRangeWithHealth(int health)
+        {
+            Path invaderPath = new Path(
+                new []
+                {
+                    new MapLocation(x:0, y:3, map: TestMap),
+                    new MapLocation(x:1, y:3, map: TestMap),
+                    new MapLocation(x:2, y:3, map: TestMap),
+                    new MapLocation(x:3, y:3, map: TestMap),
+                    new MapLocation(x:4, y:3, map: TestMap),
+                    new MapLocation(x:5, y:3, map: TestMap),
+                }
+            );
+            TestInvaderOutOfTowerRange = new Invader(
                 path: invaderPath,
                 pathStep: 0,
                 health: health
@@ -325,5 +359,48 @@ namespace TowerDefenceTreehouse.Test
             }
         }
 
+        [Test]
+        public void ShotOnInvaderOffRangeDoesNotDecreaseItsHealthAndShouldBeMiss()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                // Given TestTower with Hit Shot
+                SetUpTowerLocationWithRandomDoubleValue(0.0);
+                // Given Invader that is OUT of range of TestTower
+                // 5
+                // 4
+                // 3 i i i i i i
+                // 2
+                // 1   t
+                // 0
+                //   0 1 2 3 4 5
+                // With default invader health
+                SetUpTestInvaderOutOfTowerRangeWithHealth(Invader.DefaultHealth);
+                Assert.IsTrue(TestInvaderOutOfTowerRange.IsActive);
+                Assert.IsFalse(
+                    TestTower.IsInRangeOf(
+                        TestInvaderOutOfTowerRange
+                    )
+                );
+                int invaderHealthBeforeShot = TestInvaderOutOfTowerRange.Health;
+
+
+                // When Tower fires on invaders
+                // with TestInvader as only Invader
+                TestTower.FireOnInvaders(new []{TestInvaderOutOfTowerRange});
+
+                Assert.IsTrue(sw.ToString().Contains("missed"),
+                    "Then miss message should be printed"
+                );
+
+                Assert.AreEqual(
+                    invaderHealthBeforeShot,
+                    TestInvaderOutOfTowerRange.Health,
+                    "Then TestInvader Health should be the same as" +
+                    "before shot"
+                );
+            }
+        }
     }
 }
