@@ -402,5 +402,58 @@ namespace TowerDefenceTreehouse.Test
                 );
             }
         }
+
+        [Test]
+        public void ShotOnTwoInvadersInTowerRangeHitsOnlyOneInvader()
+        {
+            // Given TestTower with Hit Shot
+            SetUpTowerLocationWithRandomDoubleValue(0.0);
+            // Given two Invaders that are in range of TestTower
+            // 5
+            // 4
+            // 3
+            // 2
+            // 1   t
+            // 0 i i
+            //   0 1 2 3 4 5
+            // With default invader health
+            Path firstInvaderPath = new Path(
+                new []
+                {
+                    new MapLocation(x:1, y:0, map: TestMap),
+                }
+            );
+            Invader firstInvaderInTowerRange = new Invader(
+                path: firstInvaderPath,
+                pathStep: 0,
+                health: Invader.DefaultHealth
+            );
+            Path secondInvaderPath = new Path(
+                new []
+                {
+                    new MapLocation(x:1, y:0, map: TestMap),
+                }
+            );
+            Invader secondInvaderInTowerRange = new Invader(
+                path: secondInvaderPath,
+                pathStep: 0,
+                health: Invader.DefaultHealth
+            );
+            Assert.IsTrue(TestTower.IsInRangeOf(firstInvaderInTowerRange));
+            Assert.IsTrue(TestTower.IsInRangeOf(secondInvaderInTowerRange));
+
+            // When Tower fires on two invaders
+            TestTower.FireOnInvaders(
+                new []
+                {
+                    firstInvaderInTowerRange, secondInvaderInTowerRange
+                }
+            );
+
+            Assert.IsFalse(
+                firstInvaderInTowerRange.IsHit && secondInvaderInTowerRange.IsHit,
+                "Then only one invader should be hit"
+            );
+        }
     }
 }
