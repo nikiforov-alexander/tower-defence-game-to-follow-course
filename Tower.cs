@@ -83,5 +83,47 @@ namespace TowerDefenceTreehouse
                 new Random())
         {
         }
+
+        // methods
+
+        /// <summary>
+        ///     This method checks if invaders array
+        ///     passed as argument are active and in tower
+        ///     range and fires at only one of them.
+        ///
+        ///     Miss, Hit and/or Killed messages will be printed.
+        ///
+        /// </summary>
+        /// <param name="invaders">
+        ///     array of invaders to be fired upon
+        /// </param>
+        public void FireOnInvaders(Invader[] invaders)
+        {
+            foreach (Invader invader in invaders)
+            {
+                if (invader.IsActive && this.IsInRangeOf(invader))
+                {
+                    if (IsSuccessfulShot())
+                    {
+                        invader.DecreaseHealthBy(Power);
+                        Console.WriteLine(invader + " is hit!");
+                    }
+                    else
+                    {
+                        Console.WriteLine(invader + "is missed!");
+                    }
+
+                    if (invader.IsNeutralized)
+                    {
+                        Console.WriteLine(invader + "is killed!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(invader + "is missed!");
+                }
+                break;
+            }
+        }
     }
 }
