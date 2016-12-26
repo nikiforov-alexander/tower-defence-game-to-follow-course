@@ -316,7 +316,7 @@ namespace TowerDefenceTreehouse.Test
         }
 
         [Test]
-        public void MissedShotOnInvaderBecauseOfNotSuccessfulShotDoesNotDecreaseItsHealth()
+        public void MissedShotOnInvaderBecauseOfNotSuccessfulShotDoesNotHitInvader()
         {
             using (StringWriter sw = new StringWriter())
             {
@@ -339,7 +339,6 @@ namespace TowerDefenceTreehouse.Test
                         TestInvaderInTowerRange
                     )
                 );
-                int invaderHealthBeforeShot = TestInvaderInTowerRange.Health;
 
 
                 // When Tower fires on invaders
@@ -350,11 +349,9 @@ namespace TowerDefenceTreehouse.Test
                     "Then miss message should be printed"
                 );
 
-                Assert.AreEqual(
-                    invaderHealthBeforeShot,
-                    TestInvaderInTowerRange.Health,
-                    "Then TestInvader Health should be the same as" +
-                    "before shot"
+                Assert.IsFalse(
+                    TestInvaderInTowerRange.IsHit,
+                    "Then TestInvader should not be hit"
                 );
             }
         }
