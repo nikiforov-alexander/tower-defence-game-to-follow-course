@@ -32,6 +32,8 @@
 
         public bool IsActive => !IsNeutralized && !HasScored;
 
+        public bool IsHit { get; private set; }
+
         // constructors
 
         public Invader(Path path) : this(path, 0, DefaultHealth)
@@ -43,6 +45,7 @@
             _path = path;
             PathStep = pathStep;
             Health = health;
+            IsHit = false;
         }
 
         // other methods
@@ -62,6 +65,7 @@
         */
         public void DecreaseHealthBy(int amount)
         {
+            IsHit = true;
             Health -= amount;
         }
         /**
