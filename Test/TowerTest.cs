@@ -360,7 +360,7 @@ namespace TowerDefenceTreehouse.Test
         }
 
         [Test]
-        public void ShotOnInvaderOffRangeDoesNotDecreaseItsHealthAndShouldBeMiss()
+        public void ShotOnInvaderOffRangeShouldNotHitInvaderAndShouldBeMiss()
         {
             using (StringWriter sw = new StringWriter())
             {
@@ -383,8 +383,6 @@ namespace TowerDefenceTreehouse.Test
                         TestInvaderOutOfTowerRange
                     )
                 );
-                int invaderHealthBeforeShot = TestInvaderOutOfTowerRange.Health;
-
 
                 // When Tower fires on invaders
                 // with TestInvader as only Invader
@@ -394,11 +392,9 @@ namespace TowerDefenceTreehouse.Test
                     "Then miss message should be printed"
                 );
 
-                Assert.AreEqual(
-                    invaderHealthBeforeShot,
-                    TestInvaderOutOfTowerRange.Health,
-                    "Then TestInvader Health should be the same as" +
-                    "before shot"
+                Assert.IsFalse(
+                    TestInvaderOutOfTowerRange.IsHit,
+                    "Then TestInvader should not be hit"
                 );
             }
         }
