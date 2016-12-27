@@ -1,6 +1,4 @@
-using System.Linq;
-
-namespace TowerDefenceTreehouse
+namespace TowerDefenceTreehouse.MapObjects
 {
     public class Path
     {

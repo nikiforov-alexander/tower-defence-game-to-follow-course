@@ -1,9 +1,9 @@
 
-namespace TowerDefenceTreehouse
+namespace TowerDefenceTreehouse.MapObjects
 {
     public class MapLocation : Point
     {
-        public MapLocation(int x, int y, Map map) : base(x, y)
+        public MapLocation(int x, int y, MapObjects.Map map) : base(x, y)
         {
             if (!map.OnMap(this))
             {

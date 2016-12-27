@@ -1,4 +1,6 @@
-﻿namespace TowerDefenceTreehouse
+﻿using TowerDefenceTreehouse.MapObjects;
+
+namespace TowerDefenceTreehouse
 {
     public class Invader
     {

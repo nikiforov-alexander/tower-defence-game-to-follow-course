@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TowerDefenceTreehouse
+﻿namespace TowerDefenceTreehouse.MapObjects
 {
     public class Map
     {

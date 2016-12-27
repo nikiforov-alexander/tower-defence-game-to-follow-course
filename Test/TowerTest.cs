@@ -2,6 +2,8 @@
 using System.IO;
 using Moq;
 using NUnit.Framework;
+using TowerDefenceTreehouse.MapObjects;
+using Path = TowerDefenceTreehouse.MapObjects.Path;
 
 namespace TowerDefenceTreehouse.Test
 {

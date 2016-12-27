@@ -1,4 +1,4 @@
-﻿namespace TowerDefenceTreehouse
+﻿namespace TowerDefenceTreehouse.MapObjects
 {
     public class Point
     {
