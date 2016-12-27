@@ -39,5 +39,19 @@ namespace TowerDefenceTreehouse
                 tower.FireOnInvaders(Invaders.ToArray());
             }
         }
+
+        /// <summary>
+        /// Removes all Invaders that were
+        /// neutralized after Towers step
+        /// using LINQ with <c>List.RemoveAll</c> method
+        /// with filter for <c>IsNeutralized</c>
+        /// property
+        /// </summary>
+        internal void RemoveNeutralizedInvaders()
+        {
+            Invaders.RemoveAll(
+                i => i.IsNeutralized
+            );
+        }
     }
 }
