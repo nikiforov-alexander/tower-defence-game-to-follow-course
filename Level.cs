@@ -1,4 +1,6 @@
-﻿namespace TowerDefenceTreehouse
+﻿using System.Collections.Generic;
+
+namespace TowerDefenceTreehouse
 {
     public class Level
     {
@@ -7,13 +9,13 @@
 
         public WinnerType Winner { get; private set; }
 
-        public Invader[] Invaders { get; private set; }
+        public List<Invader> Invaders { get; private set; }
 
-        public Tower[] Towers { get; set; }
+        public List<Tower> Towers { get; set; }
 
         // constructors
 
-        public Level(Invader[] invaders)
+        public Level(List<Invader> invaders)
         {
             Invaders = invaders;
             Winner = WinnerType.Undefined;
