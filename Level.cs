@@ -4,8 +4,16 @@
     {
 
         // properties
+
         public Invader[] Invaders { get; private set; }
+
         public Tower[] Towers { get; set; }
 
+        // constructors
+
+        public Level(Invader[] invaders)
+        {
+            Invaders = invaders;
+        }
     }
 }
