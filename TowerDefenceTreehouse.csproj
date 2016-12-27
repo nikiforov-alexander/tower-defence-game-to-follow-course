@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.0.0-beta002\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.6.38.0, Culture=neutral, PublicKeyToken=69f491c39445e920">
+      <HintPath>..\packages\Moq.4.6.38-alpha\lib\net45\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
       <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -56,6 +62,7 @@
     <Compile Include="Test\MapTest.cs" />
     <Compile Include="Test\PathTest.cs" />
     <Compile Include="Test\PointTest.cs" />
+    <Compile Include="Test\TowerTest.cs" />
     <Compile Include="Test\VectorTest.cs" />
     <Compile Include="Tower.cs" />
     <Compile Include="Vector.cs" />
