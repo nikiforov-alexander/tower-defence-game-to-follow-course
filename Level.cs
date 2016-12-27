@@ -20,5 +20,24 @@ namespace TowerDefenceTreehouse
             Invaders = invaders;
             Winner = WinnerType.Undefined;
         }
+
+        // methods
+
+        /// <summary>
+        /// Method that encapsulates Tower's step in
+        /// this game.
+        ///
+        /// For now all towers simply shot on all
+        /// invaders in foreach loop
+        ///
+        /// Used in <see cref="Play"/>
+        /// </summary>
+        private void MakeTowerStep()
+        {
+            foreach (var tower in Towers)
+            {
+                tower.FireOnInvaders(Invaders.ToArray());
+            }
+        }
     }
 }
