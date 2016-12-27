@@ -21,6 +21,10 @@ using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
 
+// should make "internal" methods visible to "Test" classes
+
+[assembly:InternalsVisibleTo("Test")]
+
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
 [assembly: Guid("7034BE4E-484A-420D-B08F-10948956432A")]
