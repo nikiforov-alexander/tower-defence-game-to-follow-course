@@ -25,11 +25,22 @@ namespace TowerDefenceTreehouse.Test
         /// 1   t
         /// 0
         ///   0 1 2 3 4 5
+        ///
+        /// Quoting from https://blogs.msdn.microsoft.com/ploeh/2006/10/21/console-unit-testing/
+        /// Since test case redirects the standard output for System.Console
+        /// it’s important to reset it when the test is done,
+        /// since all test cases should be independent,
+        /// and you may have other tests where
+        /// you don’t want the console output to be redirected.
+        /// Usually, I use a test initialization method for this task
         /// </summary>
         [SetUp]
         public void SetUp()
         {
             TestMap = new Map(5, 5);
+            StreamWriter standardOut =
+                new StreamWriter(Console.OpenStandardOutput()) {AutoFlush = true};
+            Console.SetOut(standardOut);
         }
 
         /// <summary>
