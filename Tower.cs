@@ -112,17 +112,17 @@ namespace TowerDefenceTreehouse
                     }
                     else
                     {
-                        Console.WriteLine(invader + "is missed!");
+                        Console.WriteLine(invader + " is missed!");
                     }
 
                     if (invader.IsNeutralized)
                     {
-                        Console.WriteLine(invader + "is killed!");
+                        Console.WriteLine(invader + " is killed!");
                     }
                 }
                 else
                 {
-                    Console.WriteLine(invader + "is missed!");
+                    Console.WriteLine(invader + " is missed!");
                 }
                 break;
             }
