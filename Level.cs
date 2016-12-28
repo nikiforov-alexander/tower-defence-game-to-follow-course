@@ -27,17 +27,17 @@ namespace TowerDefenceTreehouse
         /// Method that encapsulates Tower's step in
         /// this game.
         ///
-        /// For now all towers simply shot on all
-        /// invaders in foreach loop
+        /// Uses <c>List.ForEach</c> method in
+        /// combination with LINQ for each tower to
+        /// fire on invader
         ///
         /// Used in <see cref="Play"/>
         /// </summary>
         private void MakeTowerStep()
         {
-            foreach (var tower in Towers)
-            {
-                tower.FireOnInvaders(Invaders.ToArray());
-            }
+            Towers.ForEach(
+                t => t.FireOnInvaders(Invaders)
+            );
         }
 
         /// <summary>
