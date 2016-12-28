@@ -75,7 +75,7 @@ namespace TowerDefenceTreehouse
         /// Later additional logic
         /// can be added
         /// </summary>
-        private void CheckForWinnersAmongPlayers()
+        internal void CheckForWinnersAmongPlayers()
         {
             if (Invaders.Count == 0)
             {
