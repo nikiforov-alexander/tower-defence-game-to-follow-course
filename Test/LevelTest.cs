@@ -79,5 +79,24 @@ namespace TowerDefenceTreehouse.Test
                 "Then level winner should be invader"
             );
         }
+
+        [Test]
+        public void LevelShouldBeWonByPlayersIfThereAreNoInvaders()
+        {
+            // Given empty invader list
+            Level level = new Level(
+                new List<Invader>()
+            );
+
+            // When CheckForWinnersAmongPlayers is called
+            level.CheckForWinnersAmongPlayers();
+
+            Assert.AreEqual(
+                level.Winner,
+                WinnerType.Player,
+                "Then Winner should be WinnerType.Player"
+            );
+        }
+
     }
 }
