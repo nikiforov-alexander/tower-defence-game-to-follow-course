@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using TowerDefenceTreehouse.MapObjects;
 
@@ -95,6 +96,67 @@ namespace TowerDefenceTreehouse.Test
                 level.Winner,
                 WinnerType.Player,
                 "Then Winner should be WinnerType.Player"
+            );
+        }
+
+        // integration tests for Level.Play() method
+
+        [Test]
+        public void LevelShouldBeWonByPlayerInOneTowerOneInvaderGameWhereTowerIsAlwaysAccurate()
+        {
+            // Given the tower that has 100 % accuracy
+            // invader that is in range of tower,
+            // and has health equal to tower's power
+            // on TestMap :
+            // 5
+            // 4
+            // 3
+            // 2
+            // 1   t
+            // 0 i i i i i i
+            //   0 1 2 3 4 5
+            Tower tower = new Tower(
+                location: new MapLocation(x: 1, y: 1, map: TestMap),
+                range: 1,
+                power: 1,
+                accuracy: 1.0,
+                random: new Random()
+            );
+            Invader invader = new Invader(
+                path: new Path(
+                    new MapLocation[]
+                    {
+                        new MapLocation(x: 0, y: 0, map: TestMap),
+                        new MapLocation(x: 1, y: 0, map: TestMap),
+                        new MapLocation(x: 2, y: 0, map: TestMap),
+                        new MapLocation(x: 3, y: 0, map: TestMap),
+                        new MapLocation(x: 4, y: 0, map: TestMap),
+                        new MapLocation(x: 5, y: 0, map: TestMap),
+                    }
+                ),
+                pathStep: 0,
+                health: tower.Power
+            );
+            Level level = new Level(
+                new List<Invader> {invader}
+            )
+            {
+                Towers = new List<Tower> {tower}
+            };
+            Assert.AreEqual(
+                level.Winner,
+                WinnerType.Undefined,
+                "Before play call level.Winner should be Undefined"
+            );
+
+
+            // When Level.Play() is called
+            level.Play();
+
+            Assert.AreEqual(
+                WinnerType.Player,
+                level.Winner,
+                "Level.Winner should be WinnerType.Player"
             );
         }
 
