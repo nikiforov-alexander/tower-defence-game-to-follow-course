@@ -13,8 +13,8 @@ namespace TowerDefenceTreehouse.Test
             // When Vector.LengthSquared(2,1) is called
             // Then 2*2 + 1*1 = 5 should be returned
             Assert.AreEqual(
-                Vector.LengthSquared(2, 1),
-                5
+                5,
+                Vector.LengthSquared(2, 1)
             );
         }
 
@@ -26,8 +26,8 @@ namespace TowerDefenceTreehouse.Test
             // Then sqrt(2*2 + 1*1) = sqrt(5) = 2
             // should be returned
             Assert.AreEqual(
-                Vector.Length(2, 1),
-                2
+                2,
+                Vector.Length(2, 1)
             );
         }
 
