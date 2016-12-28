@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace TowerDefenceTreehouse
 {
@@ -81,6 +82,30 @@ namespace TowerDefenceTreehouse
                 Winner = WinnerType.Player;
             }
         }
+
+        /// <summary>
+        /// Check for winners among invaders.
+        ///
+        /// For now simply counts number of
+        /// invaders that <c>HasScored</c>.
+        ///
+        /// And if more than 0, then
+        /// <c>Winner</c> is set to
+        /// <c>WinnerType.Invader</c>
+        ///
+        /// </summary>
+        internal void CheckForWinnersAmongInvaders()
+        {
+            int numberOfScoredInvaders = Invaders.Count(
+                i => i.HasScored
+            );
+
+            if (numberOfScoredInvaders > 0)
+            {
+                Winner = WinnerType.Invader;
+            }
+        }
+
 
     }
 }
