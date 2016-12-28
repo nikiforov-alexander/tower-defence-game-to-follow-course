@@ -465,7 +465,7 @@ namespace TowerDefenceTreehouse.Test
                 }
             );
 
-        Assert.IsFalse(
+            Assert.IsFalse(
                 firstInvaderInTowerRange.IsHit && secondInvaderInTowerRange.IsHit,
                 "Then only one invader should be hit"
             );
