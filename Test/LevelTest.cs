@@ -75,8 +75,8 @@ namespace TowerDefenceTreehouse.Test
             level.CheckForWinnersAmongInvaders();
 
             Assert.AreEqual(
-                level.Winner,
                 WinnerType.Invader,
+                level.Winner,
                 "Then level winner should be invader"
             );
         }
@@ -93,8 +93,8 @@ namespace TowerDefenceTreehouse.Test
             level.CheckForWinnersAmongPlayers();
 
             Assert.AreEqual(
-                level.Winner,
                 WinnerType.Player,
+                level.Winner,
                 "Then Winner should be WinnerType.Player"
             );
         }
@@ -144,8 +144,8 @@ namespace TowerDefenceTreehouse.Test
                 Towers = new List<Tower> {tower}
             };
             Assert.AreEqual(
-                level.Winner,
                 WinnerType.Undefined,
+                level.Winner,
                 "Before play call level.Winner should be Undefined"
             );
 
@@ -200,8 +200,8 @@ namespace TowerDefenceTreehouse.Test
                 Towers = new List<Tower> {tower}
             };
             Assert.AreEqual(
-                level.Winner,
                 WinnerType.Undefined,
+                level.Winner,
                 "Before play call level.Winner should be Undefined"
             );
 
