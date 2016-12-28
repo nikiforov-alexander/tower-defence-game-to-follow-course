@@ -160,5 +160,61 @@ namespace TowerDefenceTreehouse.Test
             );
         }
 
+        [Test]
+        public void LevelShouldBeWonByInvaderInOneTowerOneInvaderGameWhereInvaderIsOutOfTowerRange()
+        {
+            // Given the tower and
+            // invader that is out range of tower,
+            // on TestMap :
+            // 5
+            // 4
+            // 3 i i i i i i
+            // 2
+            // 1   t
+            // 0
+            //   0 1 2 3 4 5
+            Tower tower = new Tower(
+                location: new MapLocation(x: 1, y: 1, map: TestMap),
+                range: 1,
+                power: 1,
+                accuracy: 1.0,
+                random: new Random()
+            );
+            Invader invader = new Invader(
+                new Path(
+                    new MapLocation[]
+                    {
+                        new MapLocation(x: 0, y: 3, map: TestMap),
+                        new MapLocation(x: 1, y: 3, map: TestMap),
+                        new MapLocation(x: 2, y: 3, map: TestMap),
+                        new MapLocation(x: 3, y: 3, map: TestMap),
+                        new MapLocation(x: 4, y: 3, map: TestMap),
+                        new MapLocation(x: 5, y: 3, map: TestMap),
+                    }
+                )
+            );
+            Level level = new Level(
+                new List<Invader> {invader}
+            )
+            {
+                Towers = new List<Tower> {tower}
+            };
+            Assert.AreEqual(
+                level.Winner,
+                WinnerType.Undefined,
+                "Before play call level.Winner should be Undefined"
+            );
+
+
+            // When Level.Play() is called
+            level.Play();
+
+            Assert.AreEqual(
+                WinnerType.Invader,
+                level.Winner,
+                "Level.Winner should be WinnerType.Invader"
+            );
+        }
+
     }
 }
