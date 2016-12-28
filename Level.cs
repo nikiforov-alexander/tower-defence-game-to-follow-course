@@ -106,6 +106,32 @@ namespace TowerDefenceTreehouse
             }
         }
 
+        /// <summary>
+        /// Main public method that will be used to
+        /// play the game.
+        ///
+        /// Loops until <c>Winner</c> property is
+        /// <c>WinnerType.Undefined</c>.
+        ///
+        /// Consists of simple steps:
+        /// - towers step
+        /// - remove neutralized invaders
+        /// - check for player winners
+        /// - invaders step
+        /// - check for invader winners
+        ///
+        /// </summary>
+        public void Play()
+        {
+            while (Winner == WinnerType.Undefined)
+            {
+                MakeTowerStep();
+                RemoveNeutralizedInvaders();
+                CheckForWinnersAmongPlayers();
+                MakeInvadersStep();
+                CheckForWinnersAmongInvaders();
+            }
+        }
 
     }
 }
