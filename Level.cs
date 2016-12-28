@@ -65,5 +65,22 @@ namespace TowerDefenceTreehouse
                 i => i.Move()
             );
         }
+
+        /// <summary>
+        /// For now checks simply if <c>Invaders</c>
+        /// is empty list, and sets <c>Winner</c>
+        /// property to <c>WinnerType.Player</c>.
+        ///
+        /// Later additional logic
+        /// can be added
+        /// </summary>
+        private void CheckForWinnersAmongPlayers()
+        {
+            if (Invaders.Count == 0)
+            {
+                Winner = WinnerType.Player;
+            }
+        }
+
     }
 }
