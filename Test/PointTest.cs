@@ -14,8 +14,8 @@ namespace TowerDefenceTreehouse.Test
             // When DistanceToOrigin() is called
             // Then sqrt(1*1 + 2*2) = sqrt(5) should be returned
             Assert.AreEqual(
-                    point.DistanceToOrigin(),
-                    2
+                    2,
+                    point.DistanceToOrigin()
             );
         }
 
@@ -27,8 +27,8 @@ namespace TowerDefenceTreehouse.Test
             // When DistanceTo(2, 4) is called
             // Then sqrt[(2-1)*(2-1) + (4-2)*(4-2)] = sqrt(5) should be returned
             Assert.AreEqual(
-                    point.DistanceTo(2, 4),
-                    2
+                    2,
+                    point.DistanceTo(2, 4)
             );
         }
 
@@ -40,10 +40,10 @@ namespace TowerDefenceTreehouse.Test
             // When DistanceTo(2, 4) is called
             // Then sqrt[(2-1)*(2-1) + (4-2)*(4-2)] = sqrt(5) should be returned
             Assert.AreEqual(
+                    2,
                     point.DistanceTo(
                         new Point(2,4)
-                    ),
-                    2
+                    )
             );
         }
     }
