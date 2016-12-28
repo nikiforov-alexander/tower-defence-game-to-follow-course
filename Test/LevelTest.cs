@@ -47,5 +47,37 @@ namespace TowerDefenceTreehouse.Test
                 "Invaders property"
             );
         }
+
+        [Test]
+        public void InvadersThatScoredShouldSetWinnerToInvader()
+        {
+            // Given one invader that scored
+            // in level
+            Invader scoredInvader = new Invader(
+                path: new Path(
+                    new []
+                    {
+                        new MapLocation(x: 1, y: 1, map: TestMap),
+                    }
+                ),
+                pathStep: 1,
+                health: Invader.DefaultHealth
+            );
+            Assert.IsTrue(
+                scoredInvader.HasScored
+            );
+            Level level = new Level(
+                    new List<Invader>{scoredInvader}
+            );
+
+            // When CheckForWinnersAmongInvaders() is called
+            level.CheckForWinnersAmongInvaders();
+
+            Assert.AreEqual(
+                level.Winner,
+                WinnerType.Invader,
+                "Then level winner should be invader"
+            );
+        }
     }
 }
