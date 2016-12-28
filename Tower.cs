@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TowerDefenceTreehouse.MapObjects;
 
 namespace TowerDefenceTreehouse
@@ -88,7 +89,7 @@ namespace TowerDefenceTreehouse
         // methods
 
         /// <summary>
-        ///     This method checks if invaders array
+        ///     This method checks if list of invaders
         ///     passed as argument are active and in tower
         ///     range and fires at only one of them.
         ///
@@ -96,9 +97,9 @@ namespace TowerDefenceTreehouse
         ///
         /// </summary>
         /// <param name="invaders">
-        ///     array of invaders to be fired upon
+        ///     list of invaders to be fired upon
         /// </param>
-        public void FireOnInvaders(Invader[] invaders)
+        public void FireOnInvaders(List<Invader> invaders)
         {
             foreach (Invader invader in invaders)
             {

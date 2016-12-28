@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Moq;
 using NUnit.Framework;
@@ -270,7 +271,9 @@ namespace TowerDefenceTreehouse.Test
 
                 // When Tower fires on invaders
                 // with TestInvader as only Invader
-                TestTower.FireOnInvaders(new []{TestInvaderInTowerRange});
+                TestTower.FireOnInvaders(
+                    new List<Invader>{TestInvaderInTowerRange}
+                );
 
                 // Then invader's health should decrease
                 Assert.AreEqual(
@@ -315,7 +318,9 @@ namespace TowerDefenceTreehouse.Test
 
                 // When Tower fires on invaders
                 // with TestInvader as only Invader
-                TestTower.FireOnInvaders(new []{TestInvaderInTowerRange});
+                TestTower.FireOnInvaders(
+                    new List<Invader>{TestInvaderInTowerRange}
+                );
 
                 // Then hit message should be printed
                 Assert.IsTrue(sw.ToString().Contains("is hit"));
@@ -356,7 +361,9 @@ namespace TowerDefenceTreehouse.Test
 
                 // When Tower fires on invaders
                 // with TestInvader as only Invader
-                TestTower.FireOnInvaders(new []{TestInvaderInTowerRange});
+                TestTower.FireOnInvaders(
+                    new List<Invader>{TestInvaderInTowerRange}
+                );
 
                 Assert.IsTrue(sw.ToString().Contains("missed"),
                     "Then miss message should be printed"
@@ -396,7 +403,9 @@ namespace TowerDefenceTreehouse.Test
 
                 // When Tower fires on invaders
                 // with TestInvader as only Invader
-                TestTower.FireOnInvaders(new []{TestInvaderOutOfTowerRange});
+                TestTower.FireOnInvaders(
+                    new List<Invader>{TestInvaderOutOfTowerRange}
+                );
 
                 Assert.IsTrue(sw.ToString().Contains("missed"),
                     "Then miss message should be printed"
@@ -424,9 +433,9 @@ namespace TowerDefenceTreehouse.Test
             //   0 1 2 3 4 5
             // With default invader health
             Path firstInvaderPath = new Path(
-                new []
+                new[]
                 {
-                    new MapLocation(x:1, y:0, map: TestMap),
+                    new MapLocation(x: 1, y: 0, map: TestMap),
                 }
             );
             Invader firstInvaderInTowerRange = new Invader(
@@ -435,9 +444,9 @@ namespace TowerDefenceTreehouse.Test
                 health: Invader.DefaultHealth
             );
             Path secondInvaderPath = new Path(
-                new []
+                new[]
                 {
-                    new MapLocation(x:1, y:0, map: TestMap),
+                    new MapLocation(x: 1, y: 0, map: TestMap),
                 }
             );
             Invader secondInvaderInTowerRange = new Invader(
@@ -450,13 +459,13 @@ namespace TowerDefenceTreehouse.Test
 
             // When Tower fires on two invaders
             TestTower.FireOnInvaders(
-                new []
-                {
-                    firstInvaderInTowerRange, secondInvaderInTowerRange
+                new List<Invader> {
+                    firstInvaderInTowerRange,
+                    secondInvaderInTowerRange
                 }
             );
 
-            Assert.IsFalse(
+        Assert.IsFalse(
                 firstInvaderInTowerRange.IsHit && secondInvaderInTowerRange.IsHit,
                 "Then only one invader should be hit"
             );
