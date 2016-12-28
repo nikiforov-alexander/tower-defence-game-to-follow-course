@@ -53,5 +53,17 @@ namespace TowerDefenceTreehouse
                 i => i.IsNeutralized
             );
         }
+
+        /// <summary>
+        /// For now we simply move all invaders
+        /// by calling <c>Move</c> method on each
+        /// of them using LINQ and <c>List.ForEach</c>
+        /// </summary>
+        private void MakeInvadersStep()
+        {
+            Invaders.ForEach(
+                i => i.Move()
+            );
+        }
     }
 }
