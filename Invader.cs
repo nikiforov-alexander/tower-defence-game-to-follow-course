@@ -52,27 +52,34 @@ namespace TowerDefenceTreehouse
 
         // other methods
 
-        /**
-        Moves Invader one step more.
-        */
+        /// <summary>
+        ///     Moves <c>Invader</c> one step
+        ///     more by increasing <c>PathStep</c>
+        ///     by one
+        /// </summary>
         public void Move()
         {
             PathStep += 1;
         }
 
-        /**
-        Decreseas health of invader by given amount
-        @param : amount - to be decreased from
-        {@code Health}.
-        */
+        /// <summary>
+        ///     Decreases health of invaders by
+        ///     given amount - to be decreased
+        ///     from <c>Health</c>
+        /// </summary>
+        /// <param name="amount">
+        ///     Amount of <c>Health</c> to be decreased.
+        /// </param>
         public void DecreaseHealthBy(int amount)
         {
             IsHit = true;
             Health -= amount;
         }
-        /**
-        Decreseas {@code Health} of invader by 1
-        */
+        /// <summary>
+        ///     Overload of the <see cref="DecreaseHealthBy()"/>
+        ///     method that decreases <c>Health</c>
+        ///     by one
+        /// </summary>
         public void DecreaseHealthBy()
         {
             DecreaseHealthBy(1);
