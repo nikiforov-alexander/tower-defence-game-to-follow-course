@@ -51,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions.cs" />
-    <Compile Include="Invader.cs" />
+    <Compile Include="Interfaces\IMappable.cs" />
+    <Compile Include="Interfaces\IMovable.cs" />
+    <Compile Include="Invaders\Invader.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="MapObjects\Map.cs" />
     <Compile Include="MapObjects\MapLocation.cs" />
@@ -72,6 +74,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Invaders" />
+    <Folder Include="Towers" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

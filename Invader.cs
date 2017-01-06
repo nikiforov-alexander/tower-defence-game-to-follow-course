@@ -1,6 +1,6 @@
 ﻿using TowerDefenceTreehouse.MapObjects;
 
-namespace TowerDefenceTreehouse
+namespace TowerDefenceTreehouse.Invaders
 {
     public class Invader
     {

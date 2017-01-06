@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Moq;
 using NUnit.Framework;
+using TowerDefenceTreehouse.Invaders;
 using TowerDefenceTreehouse.MapObjects;
 using Path = TowerDefenceTreehouse.MapObjects.Path;
 

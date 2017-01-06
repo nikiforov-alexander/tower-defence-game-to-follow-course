@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using TowerDefenceTreehouse.Invaders;
 using TowerDefenceTreehouse.MapObjects;
 
 namespace TowerDefenceTreehouse.Test
