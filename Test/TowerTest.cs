@@ -5,6 +5,7 @@ using Moq;
 using NUnit.Framework;
 using TowerDefenceTreehouse.Invaders;
 using TowerDefenceTreehouse.MapObjects;
+using TowerDefenceTreehouse.Towers;
 using Path = TowerDefenceTreehouse.MapObjects.Path;
 
 namespace TowerDefenceTreehouse.Test

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using TowerDefenceTreehouse.Invaders;
 using TowerDefenceTreehouse.MapObjects;
+using TowerDefenceTreehouse.Towers;
 
 namespace TowerDefenceTreehouse.Test
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TowerDefenceTreehouse.Invaders;
 using TowerDefenceTreehouse.MapObjects;
 
-namespace TowerDefenceTreehouse
+namespace TowerDefenceTreehouse.Towers
 {
     public class Tower
     {
