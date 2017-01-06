@@ -54,6 +54,7 @@
     <Compile Include="Interfaces\IMappable.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="Invaders\Invader.cs" />
+    <Compile Include="Towers\Tower.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="MapObjects\Map.cs" />
     <Compile Include="MapObjects\MapLocation.cs" />
@@ -69,7 +70,6 @@
     <Compile Include="Test\PointTest.cs" />
     <Compile Include="Test\TowerTest.cs" />
     <Compile Include="Test\VectorTest.cs" />
-    <Compile Include="Tower.cs" />
     <Compile Include="WinnerType.cs" />
   </ItemGroup>
   <ItemGroup>
