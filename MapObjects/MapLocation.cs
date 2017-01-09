@@ -13,14 +13,19 @@ namespace TowerDefenceTreehouse.MapObjects
             }
         }
 
-        /**
-            Checks if given {@code location} is in given
-            {@code range}.
-            @param : MapLocation location
-            @param : int range
-            @return boolean : true if distance to given {@code location}
-            is less than {@code range}
-        */
+        /// <summary>
+        ///     Checks if given <c>location</c> is in
+        ///     given <c>range</c>
+        /// </summary>
+        /// <param name="location">
+        ///     Location, distance to which is
+        ///     calculated
+        /// </param>
+        /// <param name="range"></param>
+        /// <returns>
+        ///     <c>true</c> if location is less than
+        ///     given <code>range</code>
+        /// </returns>
         public bool InRangeOf(MapLocation location, int range)
         {
             return DistanceTo(location) <= range;
