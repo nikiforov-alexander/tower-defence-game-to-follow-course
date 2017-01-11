@@ -11,14 +11,20 @@
             Y = y;
         }
 
-        /**
-        Returns distance from (x,y) of arguments
-        to {@code this.Point}
-        @param : int x
-        @param : int y
-        @return int : distance between (x,y) and
-            (X,Y). {@see #Vector.Length()}
-        */
+        /// <summary>
+        ///     Calculates distance from
+        ///     <code>Point</code> to
+        ///     passed <code>x</code> and <code>y</code>
+        ///     arguments
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>
+        ///     <code>Vector.Length</code> of
+        ///     difference between coordinates
+        ///     of <code>this</code> Point and
+        ///     given coordinates.
+        /// </returns>
         public int DistanceTo(int x, int y)
         {
             return Vector.Length(X - x, Y - y);
