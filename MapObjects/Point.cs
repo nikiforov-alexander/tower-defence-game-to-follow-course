@@ -30,12 +30,11 @@
             return Vector.Length(X - x, Y - y);
         }
 
-        /**
-        Returns distance of {@code this.Point}
-        to origin
-        @return int : distance between (0,0) and
-            (X,Y), {@see #Vector.Length()}
-        */
+        /// <summary>
+        /// Calculates distance from <code>this</code>
+        /// Point to origin (0,0) Point
+        /// </summary>
+        /// <returns>int : distance to origin </returns>
         public int DistanceToOrigin()
         {
             return Vector.Length(X, Y);
