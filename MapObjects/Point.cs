@@ -40,13 +40,16 @@
             return Vector.Length(X, Y);
         }
 
-        /**
-        Returns distance from passed {@code Point}
-        to {@code this.Point}
-        @param : Point point : to which distance is calculated
-        @return int : distance between (point.X,point.Y) and
-            (this.X,this.Y). {@see #DistanceTo()}
-        */
+        /// <summary>
+        ///     Calculates distance from passed <code>point</code>
+        ///     to <code>this</code> Point.
+        /// </summary>
+        /// <param name="point">Point</param>
+        /// <returns>
+        ///     DistanceTo() method defined above with
+        ///     <code>point.x</code>
+        ///     <code>point.y</code>
+        /// </returns>
         public int DistanceTo(Point point)
         {
             return DistanceTo(point.X, point.Y);
